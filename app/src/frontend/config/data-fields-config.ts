@@ -1243,7 +1243,7 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
     planning_in_conservation_area: {
         category: Category.UrbanInfrastructure,
         title: "Is the building in a conservation area?",
-        tooltip: "Is the building in any kind of special conservation area, such as...?",
+        tooltip: "Displayed data comes from <a href=\"http://www.bedfordpark.net/leo/planning/\" target=\"_blank\">Ian Hall</a>. Geometry of areas has been slightly simplified for technical reasons. Errors are not greater than 5 m compared to the original data. For planning purposes please always check with official local authority websites.",
         example: true,
     },
     planning_in_conservation_area_id: {
