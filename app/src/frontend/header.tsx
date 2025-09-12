@@ -85,7 +85,7 @@ function getCurrentMenuLinks(username: string): MenuLink[][] {
             },
             {
                 to: "https://github.com/colouring-cities/manual/wiki/M3.1-News",
-                text: "Colouring London/Prototype development news",
+                text: "Colouring Cities development news",
                 external: true
             },
             {
@@ -114,11 +114,11 @@ function getCurrentMenuLinks(username: string): MenuLink[][] {
                 to: "/leaderboard.html",
                 text: "Top Contributors"
             },
-            {
-                to: "https://discuss.colouring.london/",
-                text: "Colouring London Discussions Forum",
-                external: true
-            },
+            // {
+            //     to: "https://discuss.colouring.london/",
+            //     text: "Colouring London Discussions Forum",
+            //     external: true
+            // },
             {
                 to: config.githubURL+"/discussions",
                 text: "Technical Discussion Forum (GitHub)",
