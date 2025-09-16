@@ -39,7 +39,7 @@ if(!allLayersCacheSwitch) {
         ['base_light', 'base_night', 'base_night_outlines', 'base_boroughs'].includes(tileset) && z <= 18;
 }
 
-const MIN_ZOOM_FOR_RENDERING_TILES = 9
+const MIN_ZOOM_FOR_RENDERING_TILES = 7
 const MAX_ZOOM_FOR_RENDERING_TILES = 19
 
 const tileCache = new TileCache(
