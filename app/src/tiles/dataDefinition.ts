@@ -24,6 +24,13 @@ const LAYER_QUERIES = {
             name
         FROM
             external_data_borough_boundary`,
+    base_region_labels: `
+        SELECT
+            geometry_id,
+            prominence,
+            name
+        FROM
+            external_data_regional_labels`,
     number_labels:`
         SELECT
             geometry_id,
@@ -660,6 +667,29 @@ function getDataConfig(tileset: string): DataConfig {
         ON d.geometry_id = g.geometry_id
         JOIN
             external_data_borough_boundary AS b
+        ON d.geometry_id = b.geometry_id
+    ) AS data
+        `;
+    
+        return {
+            geometry_field: GEOMETRY_FIELD,
+            table: query
+        };    
+    }
+
+    if(tileset == 'base_region_labels') {
+        const query = `(
+            SELECT
+            d.*,
+            g.geometry_geom
+        FROM (
+            ${table}
+        ) AS d
+        JOIN
+            geometries AS g
+        ON d.geometry_id = g.geometry_id
+        JOIN
+            external_data_regional_labels AS b
         ON d.geometry_id = b.geometry_id
     ) AS data
         `;

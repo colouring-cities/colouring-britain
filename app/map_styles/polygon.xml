@@ -99,6 +99,41 @@
             <MinScaleDenominator>0</MinScaleDenominator>
         </Rule>
     </Style>
+    <Style name="base_region_labels">
+        <Rule>
+            <Filter>[prominence] = "regions"</Filter>
+            <TextSymbolizer
+                face-name="DejaVu Sans Condensed Bold"
+                fill="#eee"
+                size="20"
+                halo-radius="2"
+                halo-fill="#333"
+                wrap-width="40"
+                clip="false"
+                margin="20"
+            >
+                [name]
+            </TextSymbolizer>
+            <MinScaleDenominator>150888</MinScaleDenominator>
+            <MaxScaleDenominator>4060888</MaxScaleDenominator>
+        </Rule>
+        <Rule>
+            <Filter>[prominence] = "countries"</Filter>
+            <TextSymbolizer
+                face-name="DejaVu Sans Condensed Bold"
+                fill="#eee"
+                size="20"
+                halo-radius="2"
+                halo-fill="#333"
+                wrap-width="35"
+                clip="false"
+                margin="20"
+            >
+                [name]
+            </TextSymbolizer>
+            <MinScaleDenominator>4060900</MinScaleDenominator>
+        </Rule>
+    </Style>
     <Style name="highlight">
         <Rule>
             <Filter>@base_data_layer = 'location' or @base_data_layer = 'conservation_area'</Filter>

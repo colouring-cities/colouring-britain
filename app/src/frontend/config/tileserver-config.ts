@@ -58,6 +58,6 @@ export type BuildingMapTileset =
     'sust_aggregate_estimate_epc';
     
 
-export type SpecialMapTileset = 'base_light' | 'base_night' | 'base_night_outlines' | 'highlight' | 'number_labels' | 'base_boroughs';
+export type SpecialMapTileset = 'base_light' | 'base_night' | 'base_night_outlines' | 'highlight' | 'number_labels' | 'base_boroughs' | 'base_region_labels';
 
 export type MapTileset = BuildingMapTileset | SpecialMapTileset;
