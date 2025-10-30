@@ -102,6 +102,13 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                 ]
             }
         },
+        {
+            mapStyle: 'age_epc_estimated',
+            legend: {
+                title: 'EPC Age Estimate',
+                elements: ageLegend,
+            },
+        },
     ],
     [Category.ConstructionDesign]: [
         {
