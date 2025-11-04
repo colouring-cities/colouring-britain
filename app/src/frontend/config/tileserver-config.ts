@@ -7,7 +7,8 @@ export type BuildingMapTileset =
     'date_year' | 
     'cladding_year' | 
     'extension_year' | 
-    'retrofit_year' | 
+    'retrofit_year' |
+    'age_epc_estimated' |
     'size_height' |
     'size_total_floors' |
     'size_storeys_basement' |

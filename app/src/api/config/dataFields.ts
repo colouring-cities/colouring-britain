@@ -162,6 +162,22 @@ export const buildingAttributesConfig = valueType<DataFieldConfig>()({ /* eslint
         edit: true,
         verify: true,
     },
+    date_epc_lower_bound: {
+        edit: true,
+        verify: true,
+    },
+    date_epc_upper_bound: {
+        edit: true,
+        verify: true,
+    },
+    date_epc_source_type : {
+        edit: true,
+        verify: true
+    },
+    date_epc_source_links: {
+        edit: true,
+        verify: true
+    },
     date_source_links: {
         edit: true,
         verify: true,

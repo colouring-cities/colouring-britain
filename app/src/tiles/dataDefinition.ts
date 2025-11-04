@@ -43,6 +43,13 @@ const LAYER_QUERIES = {
         FROM
             buildings
         WHERE date_year IS NOT NULL`,
+    age_epc_estimated: `
+        SELECT
+            geometry_id,
+            (date_epc_lower_bound + date_epc_upper_bound)/2 AS epc_year_estimated
+        FROM
+            buildings
+        WHERE date_epc_lower_bound IS NOT NULL AND date_epc_upper_bound IS NOT NULL`,
     date_year_completed: `
         SELECT
             geometry_id,
