@@ -12,6 +12,7 @@ import { Building } from '../models/building';
 import { CityBaseMapLayer } from './layers/city-base-map-layer';
 import { BoroughBoundaryLayer } from './layers/borough-boundary-layer';
 import { BoroughLabelLayer } from './layers/borough-label-layer';
+import { RegionLabelLayer } from './layers/region-label-layer';
 import { ParcelBoundaryLayer } from './layers/parcel-boundary-layer';
 import { HistoricDataLayer } from './layers/historic-data-layer';
 import { HistoricMapLayer } from './layers/historic-map-layer';
@@ -183,6 +184,7 @@ export const ColouringMap : FC<ColouringMapProps> = ({
                     style={{zIndex: 1000}}
                 >
                     <BoroughLabelLayer/>
+                    <RegionLabelLayer/>
                 </Pane>
 
                 <ZoomControl position="topright" />

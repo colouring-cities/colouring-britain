@@ -36,7 +36,7 @@ if(!allLayersCacheSwitch) {
     shouldCacheFn = ({ tileset, z }: TileParams) => z <= 18;
 } else {
     shouldCacheFn = ({ tileset, z }: TileParams) =>
-        ['base_light', 'base_night', 'base_night_outlines', 'base_boroughs'].includes(tileset) && z <= 18;
+        ['base_light', 'base_night', 'base_night_outlines', 'base_boroughs', 'base_region_labels'].includes(tileset) && z <= 18;
 }
 
 const MIN_ZOOM_FOR_RENDERING_TILES = 7
@@ -63,7 +63,7 @@ function cacheOrCreateBuildingTile(tileParams: TileParams, dataParams: any): Pro
 }
 
 function stitchOrRenderBuildingTile(tileParams: TileParams, dataParams: any): Promise<Tile> {
-    if (tileParams.z <= STITCH_THRESHOLD && tileParams.tileset != "base_boroughs") {
+    if (tileParams.z <= STITCH_THRESHOLD && tileParams.tileset != "base_boroughs" && tileParams.tileset != "base_region_labels") {
         // stitch tile, using cache recursively
         return stitchTile(tileParams, dataParams, cacheOrCreateBuildingTile);
     } else {
