@@ -46,7 +46,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
         {
             mapStyle: 'date_year',
             legend: {
-                title: 'Age Crowdsourced',
+                title: 'Age',
                 elements: ageLegend,
             },
         },
