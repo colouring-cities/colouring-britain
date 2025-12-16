@@ -10,7 +10,7 @@
             <form className={`map-button ${greenbelt}-state ${darkLightTheme}`} onSubmit={greenbeltSwitch}>
                 <button className="btn btn-outline btn-outline-dark"
                     type="submit">
-                    {(greenbelt === 'enabled')? 'Greenbelt on' : 'Greenbelt off'}
+                    {(greenbelt === 'enabled')? 'Greenbelt [on]' : 'Greenbelt [off]'}
                 </button>
             </form>
         );

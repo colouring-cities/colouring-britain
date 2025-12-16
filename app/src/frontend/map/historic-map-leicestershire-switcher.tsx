@@ -10,7 +10,7 @@ export const HistoricMapLeicestershireSwitcher: React.FC<{}> = (props) => {
         <form className={`historic-map-switcher map-button ${historicMapLeicestershire}-state ${darkLightTheme}`} onSubmit={historicMapLeicestershireSwitch}>
             <button className="btn btn-outline btn-outline-dark"
                 type="submit">
-                {(historicMapLeicestershire === 'enabled')? 'OS Leicestershire 1900s Map on' : 'OS Leicestershire 1900s Map off'}
+                {(historicMapLeicestershire === 'enabled')? 'OS Leicestershire 1900s Map [on]' : 'OS Leicestershire 1900s Map [off]'}
             </button>
         </form>
     );
