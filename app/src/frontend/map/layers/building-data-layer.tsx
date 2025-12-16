@@ -12,7 +12,7 @@ export function BuildingDataLayer({tileset, revisionId} : { tileset: BuildingMap
         return <TileLayer
                 key={`${tileset}-${revisionId}`} /* needed because TileLayer url is not mutable in react-leaflet v3 */
                 url={getTileLayerUrl(tileset, {rev: revisionId})}
-                minZoom={7}
+                minZoom={9}
                 maxZoom={19}
                 detectRetina={false}
             />;
