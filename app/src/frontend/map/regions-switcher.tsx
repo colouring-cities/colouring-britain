@@ -10,7 +10,7 @@
             <form className={`map-button ${regions}-state ${darkLightTheme}`} onSubmit={regionsSwitch}>
                 <button className="btn btn-outline btn-outline-dark"
                     type="submit">
-                    {(regions === 'enabled')? 'Regions on' : 'Regions off'}
+                    {(regions === 'enabled')? 'Regions [on]' : 'Regions [off]'}
                 </button>
             </form>
         );

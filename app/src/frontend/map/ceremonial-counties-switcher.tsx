@@ -10,7 +10,7 @@
             <form className={`map-button ${ceremonialCounties}-state ${darkLightTheme}`} onSubmit={ceremonialCountiesSwitch}>
                 <button className="btn btn-outline btn-outline-dark"
                     type="submit">
-                    {(ceremonialCounties === 'enabled')? 'Counties on' : 'Counties off'}
+                    {(ceremonialCounties === 'enabled')? 'Counties [on]' : 'Counties [off]'}
                 </button>
             </form>
         );
