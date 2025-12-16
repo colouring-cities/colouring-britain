@@ -22,6 +22,7 @@ import { AerialPhotosMapLayer } from './layers/aerial-photos-map-layer';
 import { OpenStreetMapLayer } from './layers/openstreetmap-layer';
 import { FloodBoundaryLayer } from './layers/flood-boundary-layer';
 import { ConservationAreaBoundaryLayer } from './layers/conservation-boundary-layer';
+import { WorldHeritageSitesLayer } from './layers/world-heritage-sites-layer';
 import { VistaBoundaryLayer } from './layers/vista-boundary-layer';
 import { CeremonialCountiesLayer } from './layers/ceremonial-counties-layer';
 import { RegionsLayer } from './layers/regions-layer';
@@ -43,6 +44,7 @@ import { BoroughSwitcher } from './borough-switcher';
 import { ParcelSwitcher } from './parcel-switcher';
 import { FloodSwitcher } from './flood-switcher';
 import { ConservationAreaSwitcher } from './conservation-switcher';
+import { WorldHeritageSitesSwitcher } from './world-heritage-sites-switcher';
 import { HistoricDataSwitcher } from './historic-data-switcher';
 import { HistoricMapSwitcher } from './historic-map-switcher';
 import { HistoricMapLeicestershireSwitcher } from './historic-map-leicestershire-switcher';
@@ -153,6 +155,7 @@ export const ColouringMap : FC<ColouringMapProps> = ({
                     name='cc-overlay-pane'
                     style={{zIndex: 300}}
                 >
+                    <WorldHeritageSitesLayer/>
                     <ConservationAreaBoundaryLayer/>
                     <HistoricDataLayer revisionId={revisionId} />
                     <HistoricMapLayer />
@@ -205,6 +208,7 @@ export const ColouringMap : FC<ColouringMapProps> = ({
                         <ParcelSwitcher/>
                         <FloodSwitcher/>
                         <ConservationAreaSwitcher/>
+                        <WorldHeritageSitesSwitcher/>
                         { /* <HistoricMapSwitcher/> */ }
                         { /* <HistoricDataSwitcher/> */ }
                         { /* <HistoricMapLeicestershireSwitcher/> */ }

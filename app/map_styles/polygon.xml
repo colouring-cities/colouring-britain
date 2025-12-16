@@ -1332,6 +1332,13 @@
             <LineSymbolizer stroke="#95beba" stroke-width="2.5"/>
         </Rule>
     </Style>
+    <Style name="planning_world_heritage_buildings">
+        <Rule>
+            <Filter>[listing_type] = "In World Heritage Site"</Filter>
+            <PolygonSymbolizer fill="#0bbf12"/>
+            <LineSymbolizer stroke="#0bbf12" stroke-width="1.75" />
+        </Rule>
+    </Style>
     <Style name="sust_dec">
         <Rule>
             <Filter>[sust_dec] = A</Filter>
@@ -2515,8 +2522,8 @@
         </Rule>
         <Rule>
             <Filter>[sust_aggregate_estimate_epc] is null</Filter>
-            <PolygonSymbolizer fill="#c0c0c0" />
-            <LineSymbolizer stroke="#c0c0c0" stroke-width="2.0"/>
+            <PolygonSymbolizer fill="#909090" />
+            <LineSymbolizer stroke="#909090" stroke-width="2.0"/>
         </Rule>
 
         <Rule>
