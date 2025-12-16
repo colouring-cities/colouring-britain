@@ -10,7 +10,7 @@ export const AerialPhotosMapSwitcher: React.FC<{}> = (props) => {
         <form className={`map-button ${aerialPhotosMap}-state ${darkLightTheme}`} onSubmit={aerialPhotosMapSwitch}>
             <button className="btn btn-outline btn-outline-dark"
                 type="submit">
-                {(aerialPhotosMap === 'enabled')? '1940s Aerial Photos on' : '1940s Aerial Photos off'}
+                {(aerialPhotosMap === 'enabled')? '1940s Aerial Photos [on]' : '1940s Aerial Photos [off]'}
             </button>
         </form>
     );
