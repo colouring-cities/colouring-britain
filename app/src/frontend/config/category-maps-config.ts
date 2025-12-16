@@ -48,6 +48,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
             legend: {
                 title: 'Age',
                 elements: ageLegend,
+                disclaimer: 'This map shows crowdsourced age data, mainly contributed by historians, visualised with building age data inferred from (vectorised) historical street networks.',
             },
         },
         {
