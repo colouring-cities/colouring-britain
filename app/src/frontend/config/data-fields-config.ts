@@ -577,6 +577,31 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
         tooltip: "This should be the latest year in which building could have started.",
         example: 2000,
     },
+    date_epc_lower_bound: {
+        category: Category.AgeHistory,
+        title: "Year construction completed according to EPC data - lower bound",
+        tooltip: null,
+        example: 1900,
+    },
+    date_epc_upper_bound: {
+        category: Category.AgeHistory,
+        title: "Year construction completed according to EPC data - upper bound",
+        tooltip: null,
+        example: 1900,
+    },
+    date_epc_source_type: {
+        category: Category.AgeHistory,
+        title: "Source type",
+        tooltip: null,
+        example: "",
+        items: commonSourceTypes
+    },
+    date_epc_source_links: {
+        category: Category.AgeHistory,
+        title: "Source link(s)",
+        tooltip: null,
+        example: ["", "", ""],
+    },
     facade_year: {
         category: Category.AgeHistory,
         title: "Date of front of building (best estimate)",

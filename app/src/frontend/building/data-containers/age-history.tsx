@@ -11,6 +11,7 @@ import { DataEntryGroup } from '../data-components/data-entry-group';
 import { MultiDataEntry } from '../data-components/multi-data-entry/multi-data-entry';
 import { LogicalDataEntry } from '../data-components/logical-data-entry/logical-data-entry';
 import NumericDataEntry from '../data-components/numeric-data-entry';
+import { DataTitleCopyable } from '../data-components/data-title';
 import { useDisplayPreferences } from '../../displayPreferences-context';
 import { DynamicsBuildingPane, DynamicsDataEntry } from './dynamics/dynamics-data-entry';
 import { FieldRow } from '../data-components/field-row';
@@ -119,6 +120,23 @@ const AgeHistoryView: React.FunctionComponent<CategoryViewProps> = (props) => {
             historicMapLeicestershireSwitchOnClick(event);
         }
         props.onMapColourScale(map_style);
+    }
+
+    function BuildingEpcRange() {
+        const { date_epc_lower_bound, date_epc_upper_bound } = props.building;
+      
+        let displayText;
+        if (date_epc_lower_bound && date_epc_upper_bound) {
+          displayText = `${date_epc_lower_bound}–${date_epc_upper_bound}`;
+        } else if (date_epc_lower_bound) {
+          displayText = `from ${date_epc_lower_bound}`;
+        } else if (date_epc_upper_bound) {
+          displayText = `up to ${date_epc_upper_bound}`;
+        } else {
+          displayText = 'no data';
+        }
+      
+        return <span>{displayText} - EPC age band</span>;
     }
 
     let construction_length = null;
@@ -315,6 +333,40 @@ const AgeHistoryView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         />
                     </>
                 }
+                <DataEntryGroup name={props.building.date_epc_lower_bound ? `EPC Age Data - ${props.building.date_epc_lower_bound}` : "EPC Age Data"} >
+                    <BuildingEpcRange />
+                    <p>Sources</p>
+                    <SelectDataEntry
+                    title={dataFields.date_epc_source_type.title}
+                    slug="date_epc_source_type"
+                    value={props.building.date_epc_source_type}
+                    mode={props.mode}
+                    copy={props.copy}
+                    onChange={props.onChange}
+                    tooltip={dataFields.date_epc_source_type.tooltip}
+                    placeholder={dataFields.date_epc_source_type.example}
+                    options={dataFields.date_epc_source_type.items}
+                    disabled={true}
+                    />
+                {(props.building.date_epc_source_type == commonSourceTypes[0] ||
+                    props.building.date_epc_source_type == commonSourceTypes[1] ||
+                    props.building.date_epc_source_type == null) ? <></> :
+                    <>
+                        <MultiDataEntry
+                            title={dataFields.date_epc_source_links.title}
+                            slug="date_epc_source_links"
+                            value={props.building.date_epc_source_links}
+                            mode={props.mode}
+                            copy={props.copy}
+                            onChange={props.onChange}
+                            tooltip={dataFields.date_epc_source_links.tooltip}
+                            placeholder="https://..."
+                            editableEntries={false}
+                            isUrl={true}
+                        />
+                    </>
+                }
+                </DataEntryGroup>
             </DataEntryGroup>
             <DataEntryGroup name="Cladding, Extensions & Retrofits" collapsed={subcat==null || subcat!="3"}>
                 {(props.mapColourScale != "cladding_year") ? 

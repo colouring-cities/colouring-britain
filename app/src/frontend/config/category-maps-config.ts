@@ -46,7 +46,15 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
         {
             mapStyle: 'date_year',
             legend: {
-                title: 'Age',
+                title: 'Age Crowdsourced',
+                elements: ageLegend,
+            },
+        },
+        {
+            mapStyle: 'age_epc_estimated',
+            legend: {
+                disclaimer: 'This map shows age based on official 2025 EPC data, required for new, sold and rented residential buildings.',
+                title: 'EPC Age Estimate',
                 elements: ageLegend,
                 disclaimer: 'This map shows crowdsourced age data, mainly contributed by historians, visualised with building age data inferred from (vectorised) historical street networks.',
             },
