@@ -759,8 +759,6 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
             legend: {
                 title: 'Land Use (SCat codes grouped)',
                 elements: [
-                    { color: '#e31a1c', text: 'Mixed Use' },
-                    { subtitle: 'Single use:'},
                     { color: '#a000ff', text: 'Residential' },
                     { color: '#fd7c34', text: 'Wholesale & Retail' },
                     { color: '#ff9fbc', text: 'Accommodation & Food' },
@@ -779,6 +777,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#a4755d', text: 'Agriculture, Forestry & Fishing' },
                     { color: '#c04406', text: 'Mining & Quarrying' },
                     { color: '#808080', text: 'Other' },
+                    { color: '#e31a1c', text: '[Mixed Use]' },
                     { subtitle: 'Metadata:'},
                     { color: '#ffffff', text: 'Being processed' },
                 ]
