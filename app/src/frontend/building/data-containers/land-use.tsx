@@ -12,6 +12,27 @@ import InfoBox from '../../components/info-box';
 import Tooltip from '../../components/tooltip';
 import { DataTitleCopyable } from '../data-components/data-title';
 
+interface ClasssificationSystemEntryProps {
+    classificationSystem: string;
+    code: string;
+    classDescription: string;
+    tooltipText: string;
+}
+
+const ClasssificationSystemEntry: React.FunctionComponent<ClasssificationSystemEntryProps> = (props) => {
+    return (<Fragment>
+                <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
+                    <Tooltip text={props.tooltipText } />
+                    <div className="label"><b>Classification system:</b> {props.classificationSystem}</div>
+                    <div className="info-details">
+                    <div className="code"><b>Code:</b> {props.code}</div>
+                    <div className="description"><b>Class description</b>: {props.classDescription}</div>
+                    </div>
+                    {props.children}
+                </div>
+    </Fragment>)
+}
+
 /**
  * Use view/edit section
  */
@@ -4732,13 +4753,12 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
               style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}
             >
               <Tooltip text={"tooltip"} />
-              <div className="label">UK National Non-Domestic Rates (VOA SCat):</div>
+              <div className="label"><b>Classification system:</b> UK National Non-Domestic Rates (VOA SCat)</div>
               <div className="info-details">
                 {codeLines.map((line, index) => (
                   <React.Fragment key={index}>
-                    <div className="code">{line}</div>
-                    <div className="description">
-                      {descriptionLines[index] || ""}
+                    <div className="code"><b>Code: </b>{line}</div>
+                    <div className="description"><b>Class description</b>: {descriptionLines[index] || ""}
                     </div>
                   </React.Fragment>
                 ))}
@@ -4799,22 +4819,19 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     disabled={false}
                 /> 
                 <ScatInfoBox item={item} landuseCodesData={landuseCodesData} />
-                <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                    <Tooltip text={ "[UK SIC: The UK Standard Industrial Classification of economic activities](https://www.ons.gov.uk/methodology/classificationsandstandards/ukstandardindustrialclassificationofeconomicactivities)" } />
-                    <div className="label">UK Standard Industrial Classification (SIC):</div>
-                    <div className="info-details">
-                    <div className="code">{landuseCodesData[item].UK_SIC.code}</div>
-                    <div className="description">{landuseCodesData[item].UK_SIC.description}</div>
-                    </div>
-                </div>
-                <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                    <Tooltip text={ "[Use classes](https://www.planningportal.co.uk/permission/common-projects/change-of-use/use-classes)" } />
-                    <div className="label">UK Planning Use Classes:</div>
-                    <div className="info-details">
-                    <div className="code">{landuseCodesData[item].planning_classes.code}</div>
-                    <div className="description">{landuseCodesData[item].planning_classes.description}</div>
-                    </div>
-                    {(props.mapColourScale != "planning_classes_display") ?
+                <ClasssificationSystemEntry
+                    classificationSystem="UK Standard Industrial Classification"
+                    code={landuseCodesData[item].UK_SIC.code}
+                    classDescription={landuseCodesData[item].UK_SIC.description}
+                    tooltipText = { "[UK SIC: The UK Standard Industrial Classification of economic activities](https://www.ons.gov.uk/methodology/classificationsandstandards/ukstandardindustrialclassificationofeconomicactivities)"
+                    }></ClasssificationSystemEntry>
+                <ClasssificationSystemEntry
+                    classificationSystem="UK Planning Use Classes"
+                    code={landuseCodesData[item].planning_classes.code}
+                    classDescription={landuseCodesData[item].planning_classes.description}
+                    tooltipText = { "[Use classes](https://www.planningportal.co.uk/permission/common-projects/change-of-use/use-classes)"
+                    }>
+                {(props.mapColourScale != "planning_classes_display") ?
                         <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
                             {"Click to see Planning Use Classes on map."}
                         </button>
@@ -4822,7 +4839,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         {"Now showing Planning Use Classes on map."}
                     </button>
                     }
-                </div>
+                </ClasssificationSystemEntry>
 
 
                 <DataTitleCopyable
@@ -4832,49 +4849,47 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     tooltip={null}
                     disabled={false}
                 /> 
-                {landuseCodesData[item].NACE_level_4.description != "missing entry in classification" ? <>
-                    <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                        <Tooltip text={ "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)" } />
-                        <div className="label">NACE level 4:</div>
-                        <div className="info-details">
-                        <div className="code">{landuseCodesData[item].NACE_level_4.code}</div>
-                        <div className="description">{landuseCodesData[item].NACE_level_4.description}</div>
-                        </div>
-                    </div>
-                </>: <>
-                    <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                        <Tooltip text={ "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)" } />
-                        <div className="label">NACE level 3:</div>
-                        <div className="info-details">
-                        <div className="code">{landuseCodesData[item].NACE_level_3.code}</div>
-                        <div className="description">{landuseCodesData[item].NACE_level_3.description}</div>
-                        </div>
-                    </div>
-                </>}
-                <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                        <Tooltip text={ "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)" } />
-                        <div className="label">NACE level 1:</div>
-                        <div className="info-details">
-                            <div className="code">{landuseCodesData[item].NACE_level_1.code}</div>
-                            <div className="description">{landuseCodesData[item].NACE_level_1.description}</div>
-                        </div>
-                </div>
+                {landuseCodesData[item].NACE_level_4.description != "missing entry in classification" ?
+                    <ClasssificationSystemEntry
+                    classificationSystem="NACE level 4"
+                    code={landuseCodesData[item].NACE_level_4.code}
+                    classDescription={landuseCodesData[item].NACE_level_4.description}
+                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}
+                    >
+                    </ClasssificationSystemEntry>
+                : <></>
+                }
+                {landuseCodesData[item].NACE_level_3.description != "missing entry in classification" ?
+                    <ClasssificationSystemEntry
+                    classificationSystem="NACE level 3"
+                    code={landuseCodesData[item].NACE_level_3.code}
+                    classDescription={landuseCodesData[item].NACE_level_3.description}
+                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
+                    </ClasssificationSystemEntry>
+                : <></>
+                }
+                {landuseCodesData[item].NACE_level_1.description != "missing entry in classification" ?
+                    <ClasssificationSystemEntry
+                    classificationSystem="NACE level 1"
+                    code={landuseCodesData[item].NACE_level_1.code}
+                    classDescription={landuseCodesData[item].NACE_level_1.description}
+                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
+                    </ClasssificationSystemEntry>
+                : <></>
+                }
 
-                <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                    <Tooltip text={ "[ISIC: The International Standard Industrial Classification of All Economic Activities]( https://unstats.un.org/unsd/classifications/Econ/isic)" } />
-                    <div className="label">ISIC level 4:</div>
-                    <div className="info-details">
-                    <div className="code">{landuseCodesData[item].ISIC_level_4.code}</div>
-                    <div className="description">{landuseCodesData[item].ISIC_level_4.description}</div>
-                    </div>
-                </div>
-                <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                    <Tooltip text={ "[ISIC: The International Standard Industrial Classification of All Economic Activities]( https://unstats.un.org/unsd/classifications/Econ/isic)" } />
-                    <div className="label">ISIC level 1:</div>
-                    <div className="info-details">
-                    <div className="code">{landuseCodesData[item].ISIC_level_1.code}</div>
-                    <div className="description">{landuseCodesData[item].ISIC_level_1.description}</div>
-                    </div>
+                <ClasssificationSystemEntry
+                    classificationSystem="ISIC level 4"
+                    code={landuseCodesData[item].ISIC_level_4.code}
+                    classDescription={landuseCodesData[item].ISIC_level_4.description}
+                    tooltipText = { "[ISIC: The International Standard Industrial Classification of All Economic Activities]( https://unstats.un.org/unsd/classifications/Econ/isic)"}>
+                </ClasssificationSystemEntry>
+
+                <ClasssificationSystemEntry
+                    classificationSystem="ISIC level 1"
+                    code={landuseCodesData[item].ISIC_level_1.code}
+                    classDescription={landuseCodesData[item].ISIC_level_1.description}
+                    tooltipText = { "[ISIC: The International Standard Industrial Classification of All Economic Activities]( https://unstats.un.org/unsd/classifications/Econ/isic)"}>
                     {(props.mapColourScale != "isic_level_one_display") ?
                         <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
                             {"Click to see ISIC codes on map."}
@@ -4883,15 +4898,15 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         {"Now showing ISIC land use codes on map."}
                     </button>
                     }
-                </div>
-                <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
-                    <Tooltip text={ "[CPA: The Statistical Classification of Products by Activity](https://ec.europa.eu/eurostat/web/cpa)" } />
-                    <div className="label">CPA:</div>
-                    <div className="info-details">
-                    <div className="code">{landuseCodesData[item].CPA.code}</div>
-                    <div className="description">{landuseCodesData[item].CPA.description}</div>
-                    </div>
-                </div>
+                </ClasssificationSystemEntry>
+
+                <ClasssificationSystemEntry
+                    classificationSystem="CPA"
+                    code={landuseCodesData[item].CPA.code}
+                    classDescription={landuseCodesData[item].CPA.description}
+                    tooltipText = { "[CPA: The Statistical Classification of Products by Activity](https://ec.europa.eu/eurostat/web/cpa)"}>
+                </ClasssificationSystemEntry>
+
             </div>
             </>
                    : ""
