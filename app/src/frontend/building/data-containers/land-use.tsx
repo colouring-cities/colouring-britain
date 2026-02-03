@@ -4860,6 +4860,21 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                 /> 
                 <ScatInfoBox item={item} landuseCodesData={landuseCodesData} />
                 <ClasssificationSystemEntry
+                    classificationSystem="UK Planning Use Classes"
+                    code={landuseCodesData[item].planning_classes.code}
+                    classDescription={landuseCodesData[item].planning_classes.description}
+                    tooltipText = { "[Use classes](https://www.planningportal.co.uk/permission/common-projects/change-of-use/use-classes)"
+                    }>
+                {(props.mapColourScale != "planning_classes_display") ?
+                        <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
+                            {"Click to see Planning Use Classes on map."}
+                        </button>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                            {"Now showing Planning Use Classes on map."}
+                    </button>
+                    }
+                </ClasssificationSystemEntry>
+                <ClasssificationSystemEntry
                     classificationSystem="UK Standard Industrial Classification"
                     code={landuseCodesData[item].UK_SIC.code}
                     classDescription={landuseCodesData[item].UK_SIC.description}
@@ -4871,21 +4886,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         </button>
                         : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
                         {"Now showing UK Standard Industrial Classification codes on map."}
-                    </button>
-                    }
-                </ClasssificationSystemEntry>
-                <ClasssificationSystemEntry
-                    classificationSystem="UK Planning Use Classes"
-                    code={landuseCodesData[item].planning_classes.code}
-                    classDescription={landuseCodesData[item].planning_classes.description}
-                    tooltipText = { "[Use classes](https://www.planningportal.co.uk/permission/common-projects/change-of-use/use-classes)"
-                    }>
-                {(props.mapColourScale != "planning_classes_display") ?
-                        <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
-                            {"Click to see Planning Use Classes on map."}
-                        </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
-                        {"Now showing Planning Use Classes on map."}
                     </button>
                     }
                 </ClasssificationSystemEntry>
