@@ -4810,6 +4810,34 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                   props.building.current_landuse_group_scat.map((item, index) => (
                     item in landuseCodesData ?                  
                     <>
+                <SelectDataEntry
+                    title={dataFields.current_landuse_scat_source.title}
+                    slug="current_landuse_scat_source"
+                    value={props.building.current_landuse_scat_source}
+                    mode={props.mode}
+                    copy={props.copy}
+                    onChange={props.onChange}
+                    tooltip={dataFields.current_landuse_scat_source.tooltip}
+                    placeholder={dataFields.current_landuse_scat_source.example}
+                    options={dataFields.current_landuse_scat_source.items}
+                    />
+                {(props.building.current_landuse_scat_source == commonSourceTypes[0] ||
+                    props.building.current_landuse_scat_source == commonSourceTypes[1] ||
+                    props.building.current_landuse_scat_source == null) ? <></> :
+                    <><MultiDataEntry
+                        title={dataFields.current_landuse_scat_link.title}
+                        slug="current_landuse_scat_link"
+                        value={props.building.current_landuse_scat_link}
+                        mode={props.mode}
+                        copy={props.copy}
+                        onChange={props.onChange}
+                        tooltip={dataFields.current_landuse_scat_link.tooltip}
+                        placeholder="https://..."
+                        editableEntries={true}
+                        isUrl={true}
+                        />
+                    </>
+                }
                 <div className="info-box-container">
                 <DataTitleCopyable
                     slug={"props.slug"}
@@ -4918,34 +4946,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                    : ""
                  ))
                 }</>: ""}
-                <SelectDataEntry
-                    title={dataFields.current_landuse_scat_source.title}
-                    slug="current_landuse_scat_source"
-                    value={props.building.current_landuse_scat_source}
-                    mode={props.mode}
-                    copy={props.copy}
-                    onChange={props.onChange}
-                    tooltip={dataFields.current_landuse_scat_source.tooltip}
-                    placeholder={dataFields.current_landuse_scat_source.example}
-                    options={dataFields.current_landuse_scat_source.items}
-                    />
-                {(props.building.current_landuse_scat_source == commonSourceTypes[0] ||
-                    props.building.current_landuse_scat_source == commonSourceTypes[1] ||
-                    props.building.current_landuse_scat_source == null) ? <></> :
-                    <><MultiDataEntry
-                        title={dataFields.current_landuse_scat_link.title}
-                        slug="current_landuse_scat_link"
-                        value={props.building.current_landuse_scat_link}
-                        mode={props.mode}
-                        copy={props.copy}
-                        onChange={props.onChange}
-                        tooltip={dataFields.current_landuse_scat_link.tooltip}
-                        placeholder="https://..."
-                        editableEntries={true}
-                        isUrl={true}
-                        />
-                    </>
-                }
                 <DataEntry
                     title={dataFields.current_landuse_order_scat.title}
                     tooltip={dataFields.current_landuse_order_scat.tooltip}
