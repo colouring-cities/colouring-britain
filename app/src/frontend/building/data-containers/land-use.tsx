@@ -4849,42 +4849,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     tooltip={null}
                     disabled={false}
                 /> 
-                {landuseCodesData[item].NACE_level_4.description != "missing entry in classification" ?
-                    <ClasssificationSystemEntry
-                    classificationSystem="NACE level 4"
-                    code={landuseCodesData[item].NACE_level_4.code}
-                    classDescription={landuseCodesData[item].NACE_level_4.description}
-                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}
-                    >
-                    </ClasssificationSystemEntry>
-                : <></>
-                }
-                {landuseCodesData[item].NACE_level_3.description != "missing entry in classification" ?
-                    <ClasssificationSystemEntry
-                    classificationSystem="NACE level 3"
-                    code={landuseCodesData[item].NACE_level_3.code}
-                    classDescription={landuseCodesData[item].NACE_level_3.description}
-                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
-                    </ClasssificationSystemEntry>
-                : <></>
-                }
-                {landuseCodesData[item].NACE_level_1.description != "missing entry in classification" ?
-                    <ClasssificationSystemEntry
-                    classificationSystem="NACE level 1"
-                    code={landuseCodesData[item].NACE_level_1.code}
-                    classDescription={landuseCodesData[item].NACE_level_1.description}
-                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
-                    </ClasssificationSystemEntry>
-                : <></>
-                }
-
-                <ClasssificationSystemEntry
-                    classificationSystem="ISIC level 4"
-                    code={landuseCodesData[item].ISIC_level_4.code}
-                    classDescription={landuseCodesData[item].ISIC_level_4.description}
-                    tooltipText = { "[ISIC: The International Standard Industrial Classification of All Economic Activities]( https://unstats.un.org/unsd/classifications/Econ/isic)"}>
-                </ClasssificationSystemEntry>
-
                 <ClasssificationSystemEntry
                     classificationSystem="ISIC level 1"
                     code={landuseCodesData[item].ISIC_level_1.code}
@@ -4898,8 +4862,41 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         {"Now showing ISIC land use codes on map."}
                     </button>
                     }
+                </ClasssificationSystemEntry> 
+                <ClasssificationSystemEntry
+                    classificationSystem="ISIC level 4"
+                    code={landuseCodesData[item].ISIC_level_4.code}
+                    classDescription={landuseCodesData[item].ISIC_level_4.description}
+                    tooltipText = { "[ISIC: The International Standard Industrial Classification of All Economic Activities]( https://unstats.un.org/unsd/classifications/Econ/isic)"}>
                 </ClasssificationSystemEntry>
-
+                {landuseCodesData[item].NACE_level_1.description != "missing entry in classification" ?
+                    <ClasssificationSystemEntry
+                    classificationSystem="NACE level 1"
+                    code={landuseCodesData[item].NACE_level_1.code}
+                    classDescription={landuseCodesData[item].NACE_level_1.description}
+                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
+                    </ClasssificationSystemEntry>
+                : <></>
+                }
+                {landuseCodesData[item].NACE_level_3.description != "missing entry in classification" ?
+                    <ClasssificationSystemEntry
+                    classificationSystem="NACE level 3"
+                    code={landuseCodesData[item].NACE_level_3.code}
+                    classDescription={landuseCodesData[item].NACE_level_3.description}
+                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
+                    </ClasssificationSystemEntry>
+                : <></>
+                }
+                {landuseCodesData[item].NACE_level_4.description != "missing entry in classification" ?
+                    <ClasssificationSystemEntry
+                    classificationSystem="NACE level 4"
+                    code={landuseCodesData[item].NACE_level_4.code}
+                    classDescription={landuseCodesData[item].NACE_level_4.description}
+                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}
+                    >
+                    </ClasssificationSystemEntry>
+                : <></>
+                }
                 <ClasssificationSystemEntry
                     classificationSystem="CPA"
                     code={landuseCodesData[item].CPA.code}
