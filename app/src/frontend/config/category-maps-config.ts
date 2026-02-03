@@ -757,7 +757,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
         {
             mapStyle: 'landuse_scat',
             legend: {
-                title: 'Land Use',
+                title: 'Land Use (SCat codes grouped)',
                 elements: [
                     { color: '#e31a1c', text: 'Mixed Use' },
                     { subtitle: 'Single use:'},
