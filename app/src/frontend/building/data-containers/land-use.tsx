@@ -28,6 +28,14 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
         e.preventDefault();
         props.onMapColourScale('landuse')
     }
+    const switchToIsicLevelOneMapStyle = (e) => {
+        e.preventDefault();
+        props.onMapColourScale('isic_level_one_display')
+    }
+    const switchToPlanningUseClassesMapStyle = (e) => {
+        e.preventDefault();
+        props.onMapColourScale('planning_classes_display')
+    }
 
     const landuseCodesData = {
         "AA/RAC Service Centres and Boxes": {
@@ -4806,6 +4814,14 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     <div className="code">{landuseCodesData[item].planning_classes.code}</div>
                     <div className="description">{landuseCodesData[item].planning_classes.description}</div>
                     </div>
+                    {(props.mapColourScale != "planning_classes_display") ?
+                        <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
+                            {"Click to see Planning Use Classes on map."}
+                        </button>
+                        : <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
+                        {"Now showing Planning Use Classes on map."}
+                    </button>
+                    }
                 </div>
 
 
@@ -4859,6 +4875,14 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     <div className="code">{landuseCodesData[item].ISIC_level_1.code}</div>
                     <div className="description">{landuseCodesData[item].ISIC_level_1.description}</div>
                     </div>
+                    {(props.mapColourScale != "isic_level_one_display") ?
+                        <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
+                            {"Click to see ISIC codes on map."}
+                        </button>
+                        : <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
+                        {"Now showing ISIC land use codes on map."}
+                    </button>
+                    }
                 </div>
                 <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
                     <Tooltip text={ "[CPA: The Statistical Classification of Products by Activity](https://ec.europa.eu/eurostat/web/cpa)" } />
