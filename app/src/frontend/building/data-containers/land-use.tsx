@@ -4844,7 +4844,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
                             {"Click to see Planning Use Classes on map."}
                         </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
                         {"Now showing Planning Use Classes on map."}
                     </button>
                     }
@@ -4867,7 +4867,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
                             {"Click to see ISIC codes on map."}
                         </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
                         {"Now showing ISIC land use codes on map."}
                     </button>
                     }
