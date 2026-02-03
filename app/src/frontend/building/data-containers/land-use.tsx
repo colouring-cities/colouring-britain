@@ -4840,6 +4840,16 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         />
                     </>
                 }
+                <DataEntry
+                    title={dataFields.current_landuse_order_scat.title}
+                    tooltip={dataFields.current_landuse_order_scat.tooltip}
+                    slug="current_landuse_order_scat"
+                    value={props.building.current_landuse_order_scat}
+                    mode={props.mode}
+                    disabled={true}
+                    copy={props.copy}
+                    onChange={props.onChange}
+                />
                 <div className="info-box-container">
                 <DataTitleCopyable
                     slug={"props.slug"}
@@ -4948,16 +4958,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                    : ""
                  ))
                 }</>: ""}
-                <DataEntry
-                    title={dataFields.current_landuse_order_scat.title}
-                    tooltip={dataFields.current_landuse_order_scat.tooltip}
-                    slug="current_landuse_order_scat"
-                    value={props.building.current_landuse_order_scat}
-                    mode={props.mode}
-                    disabled={true}
-                    copy={props.copy}
-                    onChange={props.onChange}
-                />
 
             </DataEntryGroup>
             {/*
