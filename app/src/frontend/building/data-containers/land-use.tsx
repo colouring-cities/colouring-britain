@@ -4924,6 +4924,14 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     code={landuseCodesData[item].NACE_level_1.code}
                     classDescription={landuseCodesData[item].NACE_level_1.description}
                     tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
+                    {(props.mapColourScale != "xxxxxxxxxxxxxxxxxxxxxx") ?
+                        <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToNaceMapStyle} */ >
+                            {"Not yet active. "/* "Click to see NACE codes on map." */}
+                        </button>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        {"Now showing NACE codes on map."}
+                    </button>
+                    }
                     </ClasssificationSystemEntry>
                 : <></>
                 }
@@ -4951,6 +4959,14 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     code={landuseCodesData[item].CPA.code}
                     classDescription={landuseCodesData[item].CPA.description}
                     tooltipText = { "[CPA: The Statistical Classification of Products by Activity](https://ec.europa.eu/eurostat/web/cpa)"}>
+                    {(props.mapColourScale != "xxxxxxxxxxxxxxxxxxxxxx") ?
+                        <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToCpaMapStyle} */ >
+                            {"Not yet active. "/* "Click to see CPA codes on map." */}
+                        </button>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        {"Now showing CPA codes on map."}
+                    </button>
+                    }
                 </ClasssificationSystemEntry>
 
             </div>
