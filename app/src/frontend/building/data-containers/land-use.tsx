@@ -4763,6 +4763,13 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                   </React.Fragment>
                 ))}
               </div>
+                {(props.mapColourScale != "landuse_scat") ? 
+                    <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToLandUseMapStyle}>
+                        {"Click to see specific land use."}
+                    </button>
+                    :
+                    <></>
+                }
             </div>
           </div>
         );
@@ -4776,13 +4783,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         In the UK over 90% of properties are residential. Please note that reference codes for residential buildings, and places of worship, are not included in land use classification systems shown below, except within UK Planning Use Classes.
                     </i>
                 </div>
-                {(props.mapColourScale != "landuse_scat") ? 
-                    <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToLandUseMapStyle}>
-                        {"Click to see specific land use."}
-                    </button>
-                    :
-                    <></>
-                }
                 <MultiDataEntry
                     title={dataFields.current_landuse_group_scat.title}
                     slug="current_landuse_group_scat"
