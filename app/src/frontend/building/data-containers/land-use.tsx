@@ -4824,7 +4824,16 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     code={landuseCodesData[item].UK_SIC.code}
                     classDescription={landuseCodesData[item].UK_SIC.description}
                     tooltipText = { "[UK SIC: The UK Standard Industrial Classification of economic activities](https://www.ons.gov.uk/methodology/classificationsandstandards/ukstandardindustrialclassificationofeconomicactivities)"
-                    }></ClasssificationSystemEntry>
+                    }>
+                    {(props.mapColourScale != "xxxxxxxxxxxxxxxxxxxxxx") ?
+                        <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToUKStandardIndustrialClassificationMapStyle} */ >
+                            {"Not yet active. "/* "Click to see UK Standard Industrial Classification codes on map." */}
+                        </button>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        {"Now showing UK Standard Industrial Classification codes on map."}
+                    </button>
+                    }
+                </ClasssificationSystemEntry>
                 <ClasssificationSystemEntry
                     classificationSystem="UK Planning Use Classes"
                     code={landuseCodesData[item].planning_classes.code}
