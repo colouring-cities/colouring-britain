@@ -113,6 +113,11 @@
     background-color: paleturquoise !important;
 }
 
+.key-button.active-button {
+    color: #141619;
+    background-color: rgb(233, 152, 211) !important;
+}
+
 .key-button:hover, .key-button-disabled:hover {
     color: #141619;
 }

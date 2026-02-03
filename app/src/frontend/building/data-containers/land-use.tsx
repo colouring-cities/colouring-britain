@@ -4768,7 +4768,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                             {"Click to see VOA SCat on map."}
                     </button>
                     :
-                    <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToLandUseMapStyle}>
+                    <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} onClick={switchToLandUseMapStyle}>
                             {"Now showing VOA SCat on map."}
                     </button>
                 }
@@ -4868,7 +4868,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
                             {"Click to see Planning Use Classes on map."}
                         </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                             {"Now showing Planning Use Classes on map."}
                     </button>
                     }
@@ -4883,7 +4883,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToUKStandardIndustrialClassificationMapStyle} */ >
                             {"Not yet active. "/* "Click to see UK Standard Industrial Classification codes on map." */}
                         </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                         {"Now showing UK Standard Industrial Classification codes on map."}
                     </button>
                     }
@@ -4906,7 +4906,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
                             {"Click to see ISIC codes on map."}
                         </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                         {"Now showing ISIC land use codes on map."}
                     </button>
                     }
@@ -4927,7 +4927,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToNaceMapStyle} */ >
                             {"Not yet active. "/* "Click to see NACE codes on map." */}
                         </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                         {"Now showing NACE codes on map."}
                     </button>
                     }
@@ -4962,7 +4962,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToCpaMapStyle} */ >
                             {"Not yet active. "/* "Click to see CPA codes on map." */}
                         </button>
-                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} >
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                         {"Now showing CPA codes on map."}
                     </button>
                     }
