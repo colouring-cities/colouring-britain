@@ -4794,7 +4794,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                 <DataTitleCopyable
                     slug={"props.slug"}
                     slugModifier={"props.slugModifier"}
-                    title={"Relevant UK landuse codes"}
+                    title={"Relevant UK landuse classification systems"}
                     tooltip={null}
                     disabled={false}
                 /> 
@@ -4828,7 +4828,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                 <DataTitleCopyable
                     slug={"props.slug"}
                     slugModifier={"props.slugModifier"}
-                    title={"Relevant international landuse codes"}
+                    title={"Relevant international landuse classification systems"}
                     tooltip={null}
                     disabled={false}
                 /> 
