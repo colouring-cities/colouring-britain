@@ -4777,7 +4777,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     </i>
                 </div>
                 {(props.mapColourScale != "landuse_scat") ? 
-                    <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToLandUseMapStyle}>
+                    <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToLandUseMapStyle}>
                         {"Click to see specific land use."}
                     </button>
                     :
@@ -4832,10 +4832,10 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     tooltipText = { "[Use classes](https://www.planningportal.co.uk/permission/common-projects/change-of-use/use-classes)"
                     }>
                 {(props.mapColourScale != "planning_classes_display") ?
-                        <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
+                        <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
                             {"Click to see Planning Use Classes on map."}
                         </button>
-                        : <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToPlanningUseClassesMapStyle}>
                         {"Now showing Planning Use Classes on map."}
                     </button>
                     }
@@ -4855,10 +4855,10 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     classDescription={landuseCodesData[item].ISIC_level_1.description}
                     tooltipText = { "[ISIC: The International Standard Industrial Classification of All Economic Activities]( https://unstats.un.org/unsd/classifications/Econ/isic)"}>
                     {(props.mapColourScale != "isic_level_one_display") ?
-                        <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
+                        <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
                             {"Click to see ISIC codes on map."}
                         </button>
-                        : <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
+                        : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToIsicLevelOneMapStyle}>
                         {"Now showing ISIC land use codes on map."}
                     </button>
                     }
@@ -5148,7 +5148,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
             </DataEntryGroup>
             <DataEntryGroup name="Original (Historical) Use" collapsed={subcat==null || subcat!="4"}>
                 {(props.mapColourScale != "original_landuse") ? 
-                    <button className={`map-switcher-inline disabled-state btn btn-outline btn-outline-dark key-button`} onClick={switchToOldLandUseMapStyle}>
+                    <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToOldLandUseMapStyle}>
                         {"Click here to see original land use."}
                     </button>
                 :
