@@ -4807,7 +4807,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     user_verified_as={props.user_verified.current_landuse_group_scat && props.user_verified.current_landuse_group_scat.join(", ")}
                     verified_count={props.building.verified.current_landuse_group_scat}
                     />
-                <hr />
                 {props.building.current_landuse_group_scat != null ? <> {
                   props.building.current_landuse_group_scat.map((item, index) => (
                     item in landuseCodesData ?                  
