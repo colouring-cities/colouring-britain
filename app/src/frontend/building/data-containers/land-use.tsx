@@ -4765,10 +4765,12 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
               </div>
                 {(props.mapColourScale != "landuse_scat") ? 
                     <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToLandUseMapStyle}>
-                        {"Click to see specific land use."}
+                            {"Click to see VOA SCat on map."}
                     </button>
                     :
-                    <></>
+                    <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button`} onClick={switchToLandUseMapStyle}>
+                            {"Now showing VOA SCat on map."}
+                    </button>
                 }
             </div>
           </div>
