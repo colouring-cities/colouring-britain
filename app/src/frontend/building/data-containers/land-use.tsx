@@ -4794,19 +4794,35 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     onChange={props.onChange}
                     confirmOnEnter={true}
                     tooltip={dataFields.current_landuse_group_scat.tooltip}
-                    placeholder="Enter new land use group here"
+                    placeholder="Enter any additional land use here"
                     copyable={true}
                     autofill={true}
                     showAllOptionsOnEmpty={true}
                 />
-                <Verification
-                    slug="current_landuse_group_scat"
-                    allow_verify={props.user !== undefined && props.building.current_landuse_group_scat !== null && !props.edited}
-                    onVerify={props.onVerify}
-                    user_verified={props.user_verified.hasOwnProperty("current_landuse_group_scat")}
-                    user_verified_as={props.user_verified.current_landuse_group_scat && props.user_verified.current_landuse_group_scat.join(", ")}
-                    verified_count={props.building.verified.current_landuse_group_scat}
-                    />
+                <DataEntry
+                    title={dataFields.current_landuse_order_scat.title}
+                    tooltip={dataFields.current_landuse_order_scat.tooltip}
+                    slug="current_landuse_order_scat"
+                    value={props.building.current_landuse_order_scat}
+                    mode={props.mode}
+                    disabled={true}
+                    copy={props.copy}
+                    onChange={props.onChange}
+                />
+                <DataTitleCopyable
+                    slug={"props.slug"}
+                    slugModifier={"props.slugModifier"}
+                    title={"Landuse classification system used"}
+                    tooltip={null}
+                    disabled={false}
+                />
+                {props.building.current_landuse_group_scat != null ? <> {
+                  props.building.current_landuse_group_scat.map((item, index) => (
+                    item in landuseCodesData ?                  
+                    <ScatInfoBox item={item} landuseCodesData={landuseCodesData} />
+                   : ""
+                ))
+               }</>: ""}
                 {props.building.current_landuse_group_scat != null ? <> {
                   props.building.current_landuse_group_scat.map((item, index) => (
                     item in landuseCodesData ?                  
@@ -4839,16 +4855,14 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         />
                     </>
                 }
-                <DataEntry
-                    title={dataFields.current_landuse_order_scat.title}
-                    tooltip={dataFields.current_landuse_order_scat.tooltip}
-                    slug="current_landuse_order_scat"
-                    value={props.building.current_landuse_order_scat}
-                    mode={props.mode}
-                    disabled={true}
-                    copy={props.copy}
-                    onChange={props.onChange}
-                />
+                <Verification
+                    slug="current_landuse_group_scat"
+                    allow_verify={props.user !== undefined && props.building.current_landuse_group_scat !== null && !props.edited}
+                    onVerify={props.onVerify}
+                    user_verified={props.user_verified.hasOwnProperty("current_landuse_group_scat")}
+                    user_verified_as={props.user_verified.current_landuse_group_scat && props.user_verified.current_landuse_group_scat.join(", ")}
+                    verified_count={props.building.verified.current_landuse_group_scat}
+                    />
                 <div className="info-box-container">
                 <DataTitleCopyable
                     slug={"props.slug"}
@@ -4856,8 +4870,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     title={"Relevant UK landuse classification systems"}
                     tooltip={null}
                     disabled={false}
-                /> 
-                <ScatInfoBox item={item} landuseCodesData={landuseCodesData} />
+                />
                 <ClasssificationSystemEntry
                     classificationSystem="UK Planning Use Classes"
                     code={landuseCodesData[item].planning_classes.code}
@@ -4934,15 +4947,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     </ClasssificationSystemEntry>
                 : <></>
                 }
-                {landuseCodesData[item].NACE_level_3.description != "missing entry in classification" ?
-                    <ClasssificationSystemEntry
-                    classificationSystem="NACE level 3"
-                    code={landuseCodesData[item].NACE_level_3.code}
-                    classDescription={landuseCodesData[item].NACE_level_3.description}
-                    tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
-                    </ClasssificationSystemEntry>
-                : <></>
-                }
                 {landuseCodesData[item].NACE_level_4.description != "missing entry in classification" ?
                     <ClasssificationSystemEntry
                     classificationSystem="NACE level 4"
@@ -4951,7 +4955,12 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}
                     >
                     </ClasssificationSystemEntry>
-                : <></>
+                : <ClasssificationSystemEntry
+                classificationSystem="NACE level 4"
+                code="no NACE level 4 code available"
+                classDescription="no NACE level 4 description available"
+                tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}
+                ></ClasssificationSystemEntry>
                 }
                 <ClasssificationSystemEntry
                     classificationSystem="CPA"
