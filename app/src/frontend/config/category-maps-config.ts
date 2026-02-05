@@ -19,6 +19,7 @@ export interface LegendConfig {
 export interface CategoryMapDefinition {
     mapStyle: BuildingMapTileset;
     legend: LegendConfig;
+    indent?: number;
 }
 
 export const defaultMapCategory = Category.AgeHistory;
@@ -791,6 +792,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#7025a6', text: 'Residential' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_retail',
@@ -800,6 +802,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#ff5b00', text: 'Retail' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_accomodation_and_food',
@@ -809,6 +812,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#ff9fbc', text: 'Accommodation & Food' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_education',
@@ -818,6 +822,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#a7cdfe', text: 'Education' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_health',
@@ -827,6 +832,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#00b5ff', text: 'Health' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_arts_sport_and_recreation',
@@ -836,6 +842,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#fd00cf', text: 'Arts, Sport & Recreation' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_places_of_worship',
@@ -845,6 +852,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#cb73ff', text: 'Places of Worship' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_public_administration_defence_and_security',
@@ -854,6 +862,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#4bffe8', text: 'Public Admin, Defence & Security' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_industry_and_business',
@@ -863,6 +872,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#fffd81', text: 'Industry & Business' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_transport_and_storage',
@@ -872,6 +882,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#9aff00', text: 'Transport & Storage' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_utilities',
@@ -881,6 +892,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#d4d4d4', text: 'Utilities' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_professional_scientific_and_technical_activities',
@@ -890,6 +902,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#ffc800', text: 'Professional, Scientific & Technical activities' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_telecommunication_computing_broadcasting_and_publishing',
@@ -899,6 +912,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#ffee00', text: 'Telecoms., Computing, Broadcasting & Publishing' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_agriculture_forestry_and_fishing',
@@ -908,6 +922,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#2ec54f', text: 'Agriculture, Forestry & Fishing' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_mining_and_quarrying',
@@ -917,6 +932,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#a44603', text: 'Mining & Quarrying' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_other',
@@ -926,6 +942,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#808080', text: 'Other' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'landuse_scat_mixed_use',
@@ -935,6 +952,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#e31a1c', text: 'Mixed Use' },
                 ]
             },
+            'indent': 3,
         },
         {
             mapStyle: 'planning_classes_display',
