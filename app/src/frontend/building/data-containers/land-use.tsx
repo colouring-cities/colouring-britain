@@ -4895,7 +4895,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     }>
                     {(props.mapColourScale != "xxxxxxxxxxxxxxxxxxxxxx") ?
                         <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToUKStandardIndustrialClassificationMapStyle} */ >
-                            {"Not yet active. "/* "Click to see UK Standard Industrial Classification codes on map." */}
+                            {"Map not yet available."/* "Click to see UK Standard Industrial Classification codes on map." */}
                         </button>
                         : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                         {"Now showing UK Standard Industrial Classification codes on map."}
@@ -4930,7 +4930,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     tooltipText = { "[NACE: The Statistical Classification of Economic Activities in the European Community]( https://ec.europa.eu/eurostat/web/nace)"}>
                     {(props.mapColourScale != "xxxxxxxxxxxxxxxxxxxxxx") ?
                         <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToNaceMapStyle} */ >
-                            {"Not yet active. "/* "Click to see NACE codes on map." */}
+                            {"Map not yet available."/* "Click to see NACE codes on map." */}
                         </button>
                         : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                         {"Now showing NACE codes on map."}
@@ -4961,7 +4961,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     tooltipText = { "[CPA: The Statistical Classification of Products by Activity](https://ec.europa.eu/eurostat/web/cpa)"}>
                     {(props.mapColourScale != "xxxxxxxxxxxxxxxxxxxxxx") ?
                         <button className={`map-switcher-inline button-not-implemented btn btn-outline btn-outline-dark key-button-disabled`} /* onClick={switchToCpaMapStyle} */ >
-                            {"Not yet active. "/* "Click to see CPA codes on map." */}
+                            {"Map not yet available."/* "Click to see CPA codes on map." */}
                         </button>
                         : <button className={`map-switcher-inline btn btn-outline btn-outline-dark key-button active-button`} >
                         {"Now showing CPA codes on map."}
