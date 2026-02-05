@@ -4863,6 +4863,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     user_verified_as={props.user_verified.current_landuse_group_scat && props.user_verified.current_landuse_group_scat.join(", ")}
                     verified_count={props.building.verified.current_landuse_group_scat}
                     />
+                <hr/>
                 <div className="info-box-container">
                 <DataTitleCopyable
                     slug={"props.slug"}
