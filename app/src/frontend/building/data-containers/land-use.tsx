@@ -4868,7 +4868,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                 <DataTitleCopyable
                     slug={"props.slug"}
                     slugModifier={"props.slugModifier"}
-                    title={"Relevant UK landuse classification systems"}
+                    title={"Related classification codes and descriptions"}
                     tooltip={null}
                     disabled={false}
                 />
@@ -4902,15 +4902,6 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     </button>
                     }
                 </ClasssificationSystemEntry>
-
-
-                <DataTitleCopyable
-                    slug={"props.slug"}
-                    slugModifier={"props.slugModifier"}
-                    title={"Relevant international landuse classification systems"}
-                    tooltip={null}
-                    disabled={false}
-                /> 
                 <ClasssificationSystemEntry
                     classificationSystem="ISIC level 1"
                     code={landuseCodesData[item].ISIC_level_1.code}
