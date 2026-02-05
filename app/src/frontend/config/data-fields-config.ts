@@ -463,7 +463,7 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
     },
     current_landuse_group_scat: {
         category: Category.LandUse,
-        title: "Current land use(s)",
+        title: "Current land use",
         tooltip: "TODO",
         example: ["", ""],
     },
@@ -495,7 +495,7 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
 
     current_landuse_group: {
         category: Category.LandUse,
-        title: "Current land use(s)",
+        title: "Current land use",
         tooltip: "Land use Groups as classified by [NLUD](https://www.gov.uk/government/statistics/national-land-use-database-land-use-and-land-cover-classification)",
         example: ["", ""],
     },
