@@ -1023,7 +1023,8 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#f7ec25', text: 'Residential' },
                     { color: '#fc9b2a', text: 'Mixed' },
                     { color: '#ff2121', text: 'Non-residential' },
-                ]
+                ],
+                disclaimer: 'Coming soon.'
             }
         }
     ],
