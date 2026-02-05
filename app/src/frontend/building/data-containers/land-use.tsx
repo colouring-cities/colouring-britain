@@ -4779,7 +4779,7 @@ const LandUseView: React.FunctionComponent<CategoryViewProps> = (props) => {
 
     return (
         <Fragment>
-            <DataEntryGroup name="Current Land Use/s" collapsed={subcat==null || subcat!="1"}>
+            <DataEntryGroup name="Current Land Use" collapsed={subcat==null || subcat!="1"}>
                 <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
                     <i>
                         In the UK over 90% of properties are residential. Please note that reference codes for residential buildings, and places of worship, are not included in land use classification systems shown below, except within UK Planning Use Classes.
