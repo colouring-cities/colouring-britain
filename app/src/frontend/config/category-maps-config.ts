@@ -970,7 +970,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: '#ff9fbc', text: 'Financial services' },
                     { color: '#cb73ff', text: 'Professional services (other than health or medical services)' },
                     { color: '#ffc800', text: 'Other appropriate services in a commercial, business or service locality' },
-                    { color: '#f5f58f', text: 'Indoor sport, recreation or fitness (not involving motorised vehicles or firearms or use as a swimming pool or skating rink,)' }
+                    { color: '#f5f58f', text: 'Indoor sport, recreation or fitness (not involving motorised vehicles or firearms or use as a swimming pool or skating rink,)' },
                     { color: '#e5050d', text: 'Provision of medical or health services (except the use of premises attached to the residence of the consultant or practitioner)' },
                     { color: '#2ec54f', text: 'Creche, day nursery or day centre (not including a residential use)' },
                     { color: '#00b5ff', text: 'Offices to carry out any operational or administrative functions' },
