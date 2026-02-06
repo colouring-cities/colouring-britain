@@ -965,7 +965,7 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { subtitle: 'Class C Residential/where people sleep'},
                     { color: '#4bffe8', text: 'Hotels' },
                     { subtitle: 'Class E Commercial, business & services'},
-                    { color: '#FB8571', text: 'Display or retail sale of goods, other than hot food' },
+                    { color: '#a44603', text: 'Display or retail sale of goods, other than hot food' },
                     { color: '#5c00ff', text: 'Sale of food and drink for consumption (mostly) on the premises' },
                     { color: '#ff9fbc', text: 'Financial services' },
                     { color: '#cb73ff', text: 'Professional services (other than health or medical services)' },
