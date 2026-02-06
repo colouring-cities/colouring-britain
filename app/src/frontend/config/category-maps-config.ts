@@ -959,11 +959,11 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
             legend: {
                 title: 'Planning Use Classes',
                 elements: [
+                    { color: '#9aff00', text: 'General industrial' },
                     { color: '#7025a6', text: 'Areas or places for outdoor sport or recreation (not involving motorised vehicles or firearms)' },
                     { color: '#2ec54f', text: 'Creche, day nursery or day centre (not including a residential use)' },
                     { color: '#a44603', text: 'Display or retail sale of goods, other than hot food' },
                     { color: '#ff9fbc', text: 'Financial services' },
-                    { color: '#9aff00', text: 'General industrial' },
                     { color: '#d4d4d4', text: 'Halls or meeting places for the principal use of the local community' },
                     { color: '#4bffe8', text: 'Hotels' },
                     { color: '#ff5b00', text: 'Indoor or outdoor swimming pools or skating rinks' },
