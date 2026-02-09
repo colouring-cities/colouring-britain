@@ -26,6 +26,10 @@ interface DisplayPreferencesContextState {
     conservationSwitch: (e: React.FormEvent<HTMLFormElement>) => void;
     conservationSwitchOnClick: React.MouseEventHandler<HTMLButtonElement>;
 
+    worldHeritageSites: LayerEnablementState;
+    worldHeritageSitesSwitch: (e: React.FormEvent<HTMLFormElement>) => void;
+    worldHeritageSitesSwitchOnClick: React.MouseEventHandler<HTMLButtonElement>;
+
     parcel: LayerEnablementState;
     parcelSwitch: (e: React.FormEvent<HTMLFormElement>) => void;
     parcelSwitchOnClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -119,6 +123,10 @@ export const DisplayPreferencesContext = createContext<DisplayPreferencesContext
     conservationSwitch: stub,
     conservationSwitchOnClick: undefined,
 
+    worldHeritageSites: undefined,
+    worldHeritageSitesSwitch: stub,
+    worldHeritageSitesSwitchOnClick: undefined,
+
     parcel: undefined,
     parcelSwitch: stub,
     parcelSwitchOnClick: undefined,
@@ -194,6 +202,7 @@ export const DisplayPreferencesProvider: React.FC<{}> = ({children}) => {
     const defaultBorough = 'enabled'
     const defaultParcel = 'disabled'
     const defaultConservation = 'disabled'
+    const defaultWorldHeritageSites = 'disabled'
     const defaultHistoricData = 'disabled'
     const defaultHistoricMap = 'disabled'
     const defaultHistoricMapLeicestershire = 'disabled'
@@ -214,6 +223,7 @@ export const DisplayPreferencesProvider: React.FC<{}> = ({children}) => {
     const [borough, setBorough] = useState<LayerEnablementState>(defaultBorough);
     const [parcel, setParcel] = useState<LayerEnablementState>(defaultParcel);
     const [conservation, setConservation] = useState<LayerEnablementState>(defaultConservation);
+    const [worldHeritageSites, setWorldHeritageSites] = useState<LayerEnablementState>(defaultWorldHeritageSites);
     const [historicData, setHistoricData] = useState<LayerEnablementState>(defaultHistoricData);
     const [historicMap, setHistoricMap] = useState<LayerEnablementState>(defaultHistoricMap);
     const [historicMapLeicestershire, setHistoricMapLeicestershire] = useState<LayerEnablementState>(defaultHistoricMapLeicestershire);
@@ -246,6 +256,7 @@ export const DisplayPreferencesProvider: React.FC<{}> = ({children}) => {
             setBorough(defaultBorough)
             setParcel(defaultParcel);
             setConservation(defaultConservation);
+            setWorldHeritageSites(defaultWorldHeritageSites);
             setHistoricData(defaultHistoricData);
             setHistoricMap(defaultHistoricMap);
             setHistoricMapLeicestershire(defaultHistoricMapLeicestershire);
@@ -283,6 +294,9 @@ export const DisplayPreferencesProvider: React.FC<{}> = ({children}) => {
             return true;
         }
         if(conservation != defaultConservation) {
+            return true;
+        }
+        if(worldHeritageSites != defaultWorldHeritageSites) {
             return true;
         }
         if(historicData != defaultHistoricData) {
@@ -429,6 +443,21 @@ export const DisplayPreferencesProvider: React.FC<{}> = ({children}) => {
         e.preventDefault();
         const newConservation = (conservation === 'enabled')? 'disabled' : 'enabled';
         setConservation(newConservation);
+    }
+
+    const worldHeritageSitesSwitch = useCallback(
+        (e) => {
+            flipWorldHeritageSites(e)
+        },
+        [worldHeritageSites],
+    )
+    const worldHeritageSitesSwitchOnClick = (e) => {
+        flipWorldHeritageSites(e)
+    }
+    function flipWorldHeritageSites(e) {
+        e.preventDefault();
+        const newWorldHeritageSites = (worldHeritageSites === 'enabled')? 'disabled' : 'enabled';
+        setWorldHeritageSites(newWorldHeritageSites);
     }
 
     const historicDataSwitch = useCallback(
@@ -697,6 +726,9 @@ export const DisplayPreferencesProvider: React.FC<{}> = ({children}) => {
             conservation,
             conservationSwitch,
             conservationSwitchOnClick,
+            worldHeritageSites,
+            worldHeritageSitesSwitch,
+            worldHeritageSitesSwitchOnClick,
             parcel,
             parcelSwitch,
             parcelSwitchOnClick,
