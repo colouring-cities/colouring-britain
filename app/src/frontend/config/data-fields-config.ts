@@ -577,6 +577,12 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
         tooltip: "This should be the latest year in which building could have started.",
         example: 2000,
     },
+    date_year_inferred: {
+        category: Category.AgeHistory,
+        title: "Year construction started (automatically inferred from other data)",
+        tooltip: null,
+        example: 1924,
+    },
     date_epc_lower_bound: {
         category: Category.AgeHistory,
         title: "Year construction completed according to EPC data - lower bound",
@@ -1378,8 +1384,8 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
     },
     planning_world_heritage_site: {
         category: Category.UrbanInfrastructure,
-        title: "Is the building on a World Heritage Site?",
-        tooltip: "Is the building on a UNESCO <a href=\"https://www.unesco.org/en\" target=\"_blank\">World Heritage Site</a>",
+        title: "Is the building part of a World Heritage Site?",
+        tooltip: "Is the building part of a UNESCO <a href=\"https://www.unesco.org/en\" target=\"_blank\">World Heritage Site</a>",
         example: true,
     },
     planning_world_list_id: {
