@@ -46,10 +46,14 @@ const LAYER_QUERIES = {
     age_amalgamated: `
         SELECT
             geometry_id,
-            COALESCE(date_year, date_year_inferred) AS date_year
+            COALESCE(
+                date_year,
+                (date_epc_lower_bound + date_epc_upper_bound)/2,
+                date_year_inferred
+            ) AS date_year
         FROM
             buildings
-        WHERE COALESCE(date_year, date_year_inferred) IS NOT NULL`,
+        WHERE COALESCE(date_year, date_epc_lower_bound + date_epc_upper_bound, date_year_inferred) IS NOT NULL`,
     date_year: `
         SELECT
             geometry_id,
