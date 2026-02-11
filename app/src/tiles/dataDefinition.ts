@@ -43,6 +43,17 @@ const LAYER_QUERIES = {
         FROM
             buildings
         WHERE building_id = !@highlight!`,
+    age_amalgamated: `
+        SELECT
+            geometry_id,
+            COALESCE(
+                date_year,
+                (date_epc_lower_bound + date_epc_upper_bound)/2,
+                date_year_inferred
+            ) AS date_year
+        FROM
+            buildings
+        WHERE COALESCE(date_year, date_epc_lower_bound + date_epc_upper_bound, date_year_inferred) IS NOT NULL`,
     date_year: `
         SELECT
             geometry_id,
@@ -50,6 +61,13 @@ const LAYER_QUERIES = {
         FROM
             buildings
         WHERE date_year IS NOT NULL`,
+    age_inferred: `
+        SELECT
+            geometry_id,
+            date_year_inferred AS date_year
+        FROM
+            buildings
+        WHERE date_year_inferred IS NOT NULL`,
     age_epc_estimated: `
         SELECT
             geometry_id,
