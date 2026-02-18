@@ -325,40 +325,6 @@ const AgeHistoryView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         />
                     </>
                 }
-                <DataEntryGroup name={props.building.date_epc_lower_bound ? `EPC Age Data - ${props.building.date_epc_lower_bound}` : "EPC Age Data"} >
-                    <BuildingEpcRange />
-                    <p>Sources</p>
-                    <SelectDataEntry
-                    title={dataFields.date_epc_source_type.title}
-                    slug="date_epc_source_type"
-                    value={props.building.date_epc_source_type}
-                    mode={props.mode}
-                    copy={props.copy}
-                    onChange={props.onChange}
-                    tooltip={dataFields.date_epc_source_type.tooltip}
-                    placeholder={dataFields.date_epc_source_type.example}
-                    options={dataFields.date_epc_source_type.items}
-                    disabled={true}
-                    />
-                {(props.building.date_epc_source_type == commonSourceTypes[0] ||
-                    props.building.date_epc_source_type == commonSourceTypes[1] ||
-                    props.building.date_epc_source_type == null) ? <></> :
-                    <>
-                        <MultiDataEntry
-                            title={dataFields.date_epc_source_links.title}
-                            slug="date_epc_source_links"
-                            value={props.building.date_epc_source_links}
-                            mode={props.mode}
-                            copy={props.copy}
-                            onChange={props.onChange}
-                            tooltip={dataFields.date_epc_source_links.tooltip}
-                            placeholder="https://..."
-                            editableEntries={false}
-                            isUrl={true}
-                        />
-                    </>
-                }
-                </DataEntryGroup>
             </DataEntryGroup>
             <DataEntryGroup name="Inferred Data" collapsed={subcat==null || subcat!="3"}>
             {(props.mapColourScale != "age_inferred") ? 
@@ -430,6 +396,38 @@ const AgeHistoryView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     />
             </DataEntryGroup>
             <DataEntryGroup name="Official Data and CCRP Bulk Upload Data" collapsed={subcat==null || subcat!="4"}>
+                <BuildingEpcRange />
+                <p>Sources</p>
+                <SelectDataEntry
+                    title={dataFields.date_epc_source_type.title}
+                    slug="date_epc_source_type"
+                    value={props.building.date_epc_source_type}
+                    mode={props.mode}
+                    copy={props.copy}
+                    onChange={props.onChange}
+                    tooltip={dataFields.date_epc_source_type.tooltip}
+                    placeholder={dataFields.date_epc_source_type.example}
+                    options={dataFields.date_epc_source_type.items}
+                    disabled={true}
+                    />
+                {(props.building.date_epc_source_type == commonSourceTypes[0] ||
+                    props.building.date_epc_source_type == commonSourceTypes[1] ||
+                    props.building.date_epc_source_type == null) ? <></> :
+                    <>
+                        <MultiDataEntry
+                            title={dataFields.date_epc_source_links.title}
+                            slug="date_epc_source_links"
+                            value={props.building.date_epc_source_links}
+                            mode={props.mode}
+                            copy={props.copy}
+                            onChange={props.onChange}
+                            tooltip={dataFields.date_epc_source_links.tooltip}
+                            placeholder="https://..."
+                            editableEntries={false}
+                            isUrl={true}
+                        />
+                    </>
+                }
             </DataEntryGroup>
             <DataEntryGroup name="Cladding, Extensions & Retrofits" collapsed={subcat==null || subcat!="5"}>
                 {(props.mapColourScale != "cladding_year") ? 
