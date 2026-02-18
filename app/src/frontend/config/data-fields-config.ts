@@ -561,8 +561,8 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
     },
     date_year_completed: {
         category: Category.AgeHistory,
-        title: "Year construction completed (best estimate)",
-        tooltip: "Best estimate for the year that construction completed on this building.",
+        title: "Year construction completed if known",
+        tooltip: null,
         example: 1925,
     },
     date_lower: {
@@ -659,8 +659,8 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
     },
     date_source_links: {
         category: Category.AgeHistory,
-        title: "Source link(s)",
-        tooltip: "URL(s) for historical data source(s) - Alternative data source(s)",
+        title: "Additional Source link(s)",
+        tooltip: null,
         example: ["", "", ""],
     },
     size_storeys_core: {
@@ -1361,9 +1361,9 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
     },
     planning_list_id: {
         category: Category.UrbanInfrastructure,
-        title: "If the building is on a national heritage register, please add the ID:",
+        title: "Please add the ID from the NHLE if the building is listed:",
         example: "121436",
-        tooltip: "e.g. National Heritage List for England (NHLE)",
+        tooltip: "National Heritage List for England (NHLE)",
     },
     planning_list_grade: {
         category: Category.UrbanInfrastructure,
