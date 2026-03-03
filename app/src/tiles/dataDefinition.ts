@@ -49,11 +49,12 @@ const LAYER_QUERIES = {
             COALESCE(
                 date_year,
                 (date_epc_lower_bound + date_epc_upper_bound)/2,
-                date_year_inferred
+                date_year_inferred,
+                (date_year_inferred_upper + date_year_inferred_lower)/2
             ) AS date_year
         FROM
             buildings
-        WHERE COALESCE(date_year, date_epc_lower_bound + date_epc_upper_bound, date_year_inferred) IS NOT NULL`,
+        WHERE COALESCE(date_year, date_epc_lower_bound + date_epc_upper_bound, date_year_inferred, (date_year_inferred_upper + date_year_inferred_lower)/2) IS NOT NULL`,
     date_year: `
         SELECT
             geometry_id,
@@ -64,10 +65,10 @@ const LAYER_QUERIES = {
     age_inferred: `
         SELECT
             geometry_id,
-            date_year_inferred AS date_year
+            COALESCE(date_year_inferred, (date_year_inferred_upper + date_year_inferred_lower)/2) AS date_year
         FROM
             buildings
-        WHERE date_year_inferred IS NOT NULL`,
+        WHERE COALESCE(date_year_inferred, date_year_inferred_upper + date_year_inferred_lower) IS NOT NULL`,
     age_epc_estimated: `
         SELECT
             geometry_id,
