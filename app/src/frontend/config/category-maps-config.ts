@@ -131,6 +131,19 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
     ],
     [Category.ConstructionDesign]: [
         {
+            mapStyle: 'construction_material_window_frame',
+            legend: {
+                title: 'Window frame material',
+                elements: [
+                    { color: "#b5a859", text: "Wood" },
+                    { color: "#8fc3a0", text: "Metal" },
+                    { color: "#ff3939", text: "Plastic" },
+                    { color: "#8080ff", text: "Other" },
+                    { color: "#ffffff", text: "No windows" }
+                ]
+            },
+        },
+        {
             mapStyle: 'construction_core_material',
             legend: {
                 title: 'Core material',
@@ -201,19 +214,6 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
                     { color: "#8fc3a0", text: "Other Metal" },
                     { color: "#96613b", text: "Other Natural Material" },
                     { color: "#c48a85", text: "Other Man-Made Material" }
-                ]
-            },
-        },
-        {
-            mapStyle: 'construction_material_window_frame',
-            legend: {
-                title: 'Window frame material',
-                elements: [
-                    { color: "#b5a859", text: "Wood" },
-                    { color: "#8fc3a0", text: "Metal" },
-                    { color: "#ff3939", text: "Plastic" },
-                    { color: "#8080ff", text: "Other" },
-                    { color: "#ffffff", text: "No windows" }
                 ]
             },
         },
