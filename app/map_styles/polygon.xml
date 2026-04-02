@@ -295,7 +295,6 @@
             <PolygonSymbolizer fill="#ed7014" />
             <LineSymbolizer stroke="#ed7014" stroke-width="2.0"/>
         </Rule>
-
         <Rule>
             <MaxScaleDenominator>17061</MaxScaleDenominator>
             <MinScaleDenominator>4264</MinScaleDenominator>
