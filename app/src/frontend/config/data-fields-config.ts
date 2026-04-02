@@ -619,6 +619,7 @@ export const dataFields = { /* eslint-disable @typescript-eslint/camelcase */
         title: "Source link(s)",
         tooltip: null,
         example: ["", "", ""],
+    },
     facade_year: {
         category: Category.AgeHistory,
         title: "Date of front of building (best estimate)",
