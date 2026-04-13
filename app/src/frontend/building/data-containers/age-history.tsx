@@ -82,6 +82,7 @@ const AgeHistoryView: React.FunctionComponent<CategoryViewProps> = (props) => {
         if (historicMapLeicestershire === 'enabled') {
             historicMapLeicestershireSwitchOnClick(e);
         }
+        props.onMapColourScale('empty_map');
     }
 
     const switchToHistoricalPeriodMapStyle = (e) => {
