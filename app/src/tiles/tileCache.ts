@@ -127,6 +127,28 @@ class TileCache {
     }
     
 
+    async removeZoomedAtBbox(bbox: BoundingBox): Promise<void[]> {
+        const removePromises: Promise<void>[] = [];
+        for (const tileset of this.cacheDomain.tilesets) {
+            if(!this.shouldBulkClearTileset(tileset)) continue;
+
+            for (let z = this.cacheDomain.minZoom; z <= this.cacheDomain.maxZoom; z++) {
+                if(z >= 14) {
+                    let tileBounds = getXYZ(bbox, z);
+                    for (let x = tileBounds.minX; x <= tileBounds.maxX; x++) {
+                        for (let y = tileBounds.minY; y <= tileBounds.maxY; y++) {
+                            for (const scale of this.cacheDomain.scales) {
+                                removePromises.push(this.remove({tileset, z, x, y, scale}));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return Promise.all(removePromises);
+    }
+    
+
     private cacheLocation({tileset, z, x, y, scale}: TileParams): CacheLocation {
         const dir = `${this.basePath}/${tileset}/${z}/${x}`;
         const scaleSuffix = scale === 1 ? '' : `@${scale}x`;

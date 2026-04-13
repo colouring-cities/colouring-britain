@@ -25,5 +25,5 @@ function privateQueryBuildingBBOX(buildingId: number){
 export async function expireBuildingTileCache(buildingId: number) {
     const bbox = await privateQueryBuildingBBOX(buildingId);
     const buildingBbox: BoundingBox = [bbox.xmax, bbox.ymax, bbox.xmin, bbox.ymin];
-    tileCache.removeAllAtBbox(buildingBbox);
+    tileCache.removeZoomedAtBbox(buildingBbox);
 }
