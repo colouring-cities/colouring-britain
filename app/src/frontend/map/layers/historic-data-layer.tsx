@@ -17,6 +17,10 @@ export function HistoricDataLayer({revisionId}: {revisionId: string}) {
                     url="https://mapseries-tilesets.s3.amazonaws.com/25_inch/leicestershire/{z}/{x}/{y}.png"
                     attribution='historical map: &copy; CC BY 4.0 - Reproduced with the permission of the <a href="https://maps.nls.uk/">National Library of Scotland</a>'
                 />
+                <TileLayer
+                    url="https://mapseries-tilesets.s3.amazonaws.com/25_inch/cambridge/{z}/{x}/{y}.png"
+                    attribution='historical map: &copy; CC BY 4.0 - Reproduced with the permission of the <a href="https://maps.nls.uk/">National Library of Scotland</a>'
+                />
                 <BuildingBaseLayerAllZoom theme="night_outlines" />
                 <BuildingDataLayer tileset={'survival_status'} revisionId={revisionId} />
             </>
