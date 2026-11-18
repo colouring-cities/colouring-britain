@@ -42,9 +42,9 @@ const getBuildingById = asyncController(async (req: express.Request, res: expres
 
     const returnUserAttributes = parseBooleanExact(String(req.query.user_attributes));
 
-    let userDataOptions = null;
+    let userDataOptions: buildingService.BuildingMetadataOptions['userDataOptions'] = undefined;
     if(returnUserAttributes) {
-        let userId: string;
+        let userId: string | undefined;
         try {
             userId = req.session.user_id ?? (
                 req.query.api_key && await userService.authAPIUser(String(req.query.api_key))
@@ -56,7 +56,7 @@ const getBuildingById = asyncController(async (req: express.Request, res: expres
         if(!userId) {
             return res.send({ error: 'Must be logged in' });
         }
-        userDataOptions = { userId: req.session.user_id, userAttributes: true};
+        userDataOptions = { userId: userId, userAttributes: true};
     }
 
     try {
@@ -70,7 +70,7 @@ const getBuildingById = asyncController(async (req: express.Request, res: expres
 
 // POST building attribute updates
 const updateBuildingById = asyncController(async (req: express.Request, res: express.Response) => {
-    let userId: string;
+    let userId: string | undefined;
     
     try {
         userId = req.session.user_id ?? (

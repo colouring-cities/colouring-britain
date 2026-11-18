@@ -10,6 +10,7 @@
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
     "lint": "eslint --ext .tsx --ext .ts .",
+    "typecheck": "tsc --noEmit -p .",
     "start:prod": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
@@ -20,7 +21,7 @@
     "@mapbox/sphericalmercator": "^1.1.0",
     "ajv": "^8.18.0",
     "ajv-formats": "^2.1.1",
-    "body-parser": "^1.20.5",
+    "body-parser": "^1.20.6",
     "bootstrap": "^5.0.0",
     "canvas-confetti": "^1.2.0",
     "connect-pg-simple": "^6.1.0",
@@ -60,7 +61,7 @@
     "@types/pg-format": "^1.0.2",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "@types/react-router-dom": "^4.3.5",
+    "@types/react-router-dom": "^5.3.3",
     "@types/sharp": "^0.28.0",
     "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
@@ -71,7 +72,7 @@
     "eslint-plugin-react": "^7.23.2",
     "html-webpack-plugin": "^4.5.2",
     "mini-css-extract-plugin": "^0.12.0",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.23",
     "razzle": "^4.0.4",
     "razzle-dev-utils": "^4.0.4",
     "razzle-plugin-typescript": "^4.0.4",
@@ -99,5 +100,9 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}"
     ]
+  },
+  "allowScripts": {
+    "mapnik@4.5.9": true,
+    "sharp@0.32.6": true
   }
 }

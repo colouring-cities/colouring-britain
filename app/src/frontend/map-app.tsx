@@ -102,7 +102,7 @@ export const MapApp: React.FC<MapAppProps> = props => {
     const colourBuilding = useCallback(async (building: Building) => {
         const buildingId = building?.building_id;
 
-        if(buildingId != undefined && multiEditError == undefined) {
+        if(buildingId != undefined && multiEditData != undefined && multiEditError == undefined) {
             try {
                 const updatedBuilding = await sendBuildingUpdate(buildingId, multiEditData);
                 updateRevisionId(updatedBuilding.revision_id);
@@ -155,7 +155,7 @@ export const MapApp: React.FC<MapAppProps> = props => {
                             </Route>
                             <Route exact path="/:mode/:cat/:building?">
                                 <BuildingView
-                                    mode={viewEditMode}
+                                    mode={viewEditMode ?? 'view'}
                                     cat={displayCategory}
                                     building={building}
                                     user_verified={userVerified ?? {}}
