@@ -11,7 +11,7 @@ import { DataEntryGroup } from '../data-components/data-entry-group';
 import SelectDataEntry from '../data-components/select-data-entry';
 import { MultiDataEntry } from '../data-components/multi-data-entry/multi-data-entry';
 import { LogicalDataEntry } from '../data-components/logical-data-entry/logical-data-entry';
-import { MapTileset } from '../../config/tileserver-config';
+import { BuildingMapTileset } from '../../config/tileserver-config';
 import { CCConfig } from '../../../cc-config';
 
 const locationNumberPattern = "[1-9]\\d*[a-z]?(-([1-9]\\d*))?"; ///[1-9]\d*[a-z]?(-([1-9]\d*))?/;
@@ -24,7 +24,7 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
         switchToMapStyle(e, 'building_footprint_issues')
     }
 
-    const switchToMapStyle = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, map_style: MapTileset) => {
+    const switchToMapStyle = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, map_style: BuildingMapTileset) => {
         event.preventDefault();
         props.onMapColourScale(map_style);
     }
