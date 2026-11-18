@@ -300,6 +300,49 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
     ],
     [Category.PlanningConservation]: [
         {
+            mapStyle: 'planning_combined',
+            legend: {
+                title: 'Designation/protection (official and crowdsourced data)',
+                disclaimer: 'All data relating to designated buildings should be checked against the National Heritage List for England and local authority websites. Designation data is currently incomplete.',
+                elements: [
+                    { color: '#95beba', text: 'In Conservation Area'},
+                    { color: '#c72e08', text: 'Grade I Listed'},
+                    { color: '#e75b42', text: 'Grade II* Listed'},
+                    { color: '#ffbea1', text: 'Grade II Listed'},
+                    { color: '#85ffd4', text: 'Heritage at Risk'},
+                    { color: '#858ed4', text: 'Locally Listed'},
+                    { color: '#0bbf12', text: 'In World Heritage Site'},
+                    { color: '#8500d4', text: 'In Archaeological Priority Area'},
+                ]
+            },
+        },
+        {
+            mapStyle: 'planning_world_heritage_buildings',
+            legend: {
+                title: 'Buildings in World Heritage Sites (official and crowdsourced data)',
+                disclaimer: 'All data relating to designated buildings should be checked against the National Heritage List for England and local authority websites. Designation data is currently incomplete.',
+                elements: [
+                    { color: '#0bbf12', text: 'In World Heritage Site'},
+                ]
+            },
+        },
+        {
+            mapStyle: 'community_local_significance_total',
+            legend: {
+                title: 'Local Interest',
+                description: 'People who think the building is of a local interest',
+                elements: [
+                    { color: '#bd0026', text: '100+' },
+                    { color: '#e31a1c', text: '50–99' },
+                    { color: '#fc4e2a', text: '20–49' },
+                    { color: '#fd8d3c', text: '10–19' },
+                    { color: '#feb24c', text: '3–9' },
+                    { color: '#fed976', text: '2' },
+                    { color: '#ffe8a9', text: '1'}
+                ]
+            }
+        },
+        {
             // this database commad allows to see statistics about decision dates per year
             // SELECT COUNT(*), date_part('year', decision_date) as year from planning_data WHERE decision_date IS NOT NULL GROUP BY year ORDER BY year ASC;
             // SELECT COUNT(*), date_part('year', registered_with_local_authority_date) as year from planning_data WHERE decision_date IS NOT NULL GROUP BY year ORDER BY year ASC;
@@ -352,49 +395,6 @@ export const categoryMapsConfig: {[key in Category]: CategoryMapDefinition[]} = 
             legend: {
                 title: 'Expected planning applications (crowdsourced data)',
                 disclaimer: 'Sites identified by users as likely to be subject to planning application over the next six months',
-                elements: [
-                    { color: '#bd0026', text: '100+' },
-                    { color: '#e31a1c', text: '50–99' },
-                    { color: '#fc4e2a', text: '20–49' },
-                    { color: '#fd8d3c', text: '10–19' },
-                    { color: '#feb24c', text: '3–9' },
-                    { color: '#fed976', text: '2' },
-                    { color: '#ffe8a9', text: '1'}
-                ]
-            }
-        },
-        {
-            mapStyle: 'planning_combined',
-            legend: {
-                title: 'Designation/protection (official and crowdsourced data)',
-                disclaimer: 'All data relating to designated buildings should be checked against the National Heritage List for England and local authority websites. Designation data is currently incomplete.',
-                elements: [
-                    { color: '#95beba', text: 'In Conservation Area'},
-                    { color: '#c72e08', text: 'Grade I Listed'},
-                    { color: '#e75b42', text: 'Grade II* Listed'},
-                    { color: '#ffbea1', text: 'Grade II Listed'},
-                    { color: '#85ffd4', text: 'Heritage at Risk'},
-                    { color: '#858ed4', text: 'Locally Listed'},
-                    { color: '#0bbf12', text: 'In World Heritage Site'},
-                    { color: '#8500d4', text: 'In Archaeological Priority Area'},
-                ]
-            },
-        },
-        {
-            mapStyle: 'planning_world_heritage_buildings',
-            legend: {
-                title: 'Buildings in World Heritage Sites (official and crowdsourced data)',
-                disclaimer: 'All data relating to designated buildings should be checked against the National Heritage List for England and local authority websites. Designation data is currently incomplete.',
-                elements: [
-                    { color: '#0bbf12', text: 'In World Heritage Site'},
-                ]
-            },
-        },
-        {
-            mapStyle: 'community_local_significance_total',
-            legend: {
-                title: 'Local Interest',
-                description: 'People who think the building is of a local interest',
                 elements: [
                     { color: '#bd0026', text: '100+' },
                     { color: '#e31a1c', text: '50–99' },
