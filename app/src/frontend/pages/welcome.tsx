@@ -38,7 +38,6 @@ const Welcome = () => (
         </Link>
         <div className="image-row">
             <img className="cl-logo" src="images/logo-cc.jpg" alt="Colouring Cities Research Programme"></img>
-            <img className="turing-logo" src="images/logo-turing.jpg" alt="Alan Turing Institute"></img>
         </div>
         <div className="image-row">
             <img src="images/supporter-logos.png" alt="Colouring Cities collaborating organisations: The Bartlett UCL, Ordnance Survey, Historic England, Greater London Authority" />
