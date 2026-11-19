@@ -30,18 +30,69 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
     }
 
     const osm_url = "www.openstreetmap.org/way/"+props.building.ref_osm_id;
+    const toid = props.building.ref_toid;
+    const isOsgb = !!toid && toid.startsWith("osgb");
+    const isInspire = !!toid && toid.startsWith("inspire+local_ntrsc");
     
     const queryParameters = new URLSearchParams(window.location.search);
     const subcat = queryParameters.get("sc");
 
     return (
         <Fragment>
-            <DataEntryGroup name="Building Footprints (Datasets)" collapsed={subcat==null || subcat!="4"}>
+            <DataEntryGroup name="Building Footprints" collapsed={subcat==null || subcat!="4"}>
                 <div className={`alert alert-dark`} role="alert" style={{ fontSize: 13, backgroundColor: "#f6f8f9" }}>
                     <i>
-                    Building footprints are an essential component of Colouring {config.cityName} and are used data capture, collation, verification & visualisation.
+                    Building footprints are an essential component of Colouring {config.cityName} and are used for data capture, collation, verification & visualisation.
                     </i>
                 </div>
+                {!(isOsgb || isInspire) ? <></> :
+                <>
+                    <SelectDataEntry
+                        title="You are viewing this building footprint dataset:"
+                        slug="not_applicable"
+                        slugModifier="_footprint_dataset"
+                        value={isOsgb ? "Ordnance Survey MasterMap" : "INSPIRE/OS Local Map intersection"}
+                        disabled={true}
+                        mode={props.mode}
+                        onChange={props.onChange}
+                        tooltip={null}
+                        options={["Ordnance Survey MasterMap", "INSPIRE/OS Local Map intersection"]}
+                        />
+                    <SelectDataEntry
+                        title="Building footprint dataset type:"
+                        slug="not_applicable"
+                        slugModifier="_footprint_dataset_type"
+                        value={isOsgb ? "Official government" : "Academic"}
+                        disabled={true}
+                        mode={props.mode}
+                        onChange={props.onChange}
+                        tooltip={null}
+                        options={["Official government", "Academic"]}
+                        />
+                    <MultiDataEntry
+                        title="Building footprint dataset links:"
+                        slug="not_applicable"
+                        slugModifier="_footprint_dataset_links"
+                        value={isOsgb ? ["https://www.ordnancesurvey.co.uk/customers/public-sector/os-data-hub-public-sector", "https://www.ordnancesurvey.co.uk/products/os-mastermap-topography-layer"] : ["https://use-land-property-data.service.gov.uk/datasets/inspire/download", "https://osdatahub.os.uk/downloads/open/OpenMapLocal"]}
+                        mode={props.mode}
+                        onChange={props.onChange}
+                        disabled={true}
+                        editableEntries={false}
+                        isUrl={true}
+                    />
+                    <MultiDataEntry
+                        title="Building footprint method link:"
+                        slug="not_applicable"
+                        slugModifier="_footprint_method_link"
+                        value={isOsgb ? ["https://docs.os.uk/os-downloads/products/maps-and-imagery-portfolio/os-mastermap-topography-layer/os-mastermap-topography-layer-technical-specification"] : ["https://github.com/colouring-cities/manual/wiki/G2.-BUILDING-FOOTPRINTS-SOURCES"]}
+                        mode={props.mode}
+                        onChange={props.onChange}
+                        disabled={true}
+                        editableEntries={false}
+                        isUrl={true}
+                    />
+                </>
+                }
                 <NumericDataEntry
                     title={dataFields.location_latitude.title}
                     slug="location_latitude"
@@ -83,6 +134,19 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     verified_count={props.building.verified.location_longitude}
                     />
                 <SelectDataEntry
+                    title="Choose a different footprint type:"
+                    slug="not_applicable"
+                    slugModifier="_footprint_type_choice"
+                    value={null}
+                    disabled={true}
+                    mode={props.mode}
+                    onChange={props.onChange}
+                    tooltip={null}
+                    placeholder={"Not available yet."}
+                    options={["Not available yet"]}
+                />
+                {/*
+                <SelectDataEntry
                     title={dataFields.location_coordinates_source.title}
                     slug="location_coordinates_source"
                     value={props.building.location_coordinates_source}
@@ -109,6 +173,7 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
                         />
                     </>
                 }
+                */}
             </DataEntryGroup>
             <DataEntryGroup name="Individual Building/Property Address" collapsed={subcat==null || subcat!="1"}>
                 {/* <DataEntry
@@ -310,7 +375,7 @@ const LocationView: React.FunctionComponent<CategoryViewProps> = (props) => {
                     disabled={true}
                     />
                 {
-                    (props.building.ref_toid == null) ? <></> :
+                    !isOsgb ? <></> :
                     <div className={`alert alert-dark`} role="alert" style={{ fontSize: 14, backgroundColor: "#f6f8f9" }}>
                         <i className="source-url">Source: <a href="https://www.ordnancesurvey.co.uk/products/os-open-toid" target={"_blank"}>{"www.ordnancesurvey.co.uk/products/os-open-toid"}</a></i>
                     </div>
